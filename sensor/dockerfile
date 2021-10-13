@@ -1,16 +1,11 @@
 # Pull base image.
-
 FROM ubuntu:latest
-
 ARG DEBIAN_FRONTEND=noninteractive
-# Add files.
 
+# Add files.
 ADD src/ .
 
-
-
 # Install Linux Dependencies.
-
 RUN \
     apt-get update -y && \
     apt-get upgrade -y && \
@@ -24,3 +19,5 @@ RUN \
 # Install Python Dependencies.
 RUN \
     python3 -m pip install -r requirements.txt
+
+
