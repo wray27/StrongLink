@@ -3,7 +3,7 @@ import asyncio
 from azure.iot.device.aio import IoTHubDeviceClient
 
 
-async def main():
+async def send_message(message):
     # Fetch the connection string from an enviornment variable
     conn_str = os.getenv("IOTHUB_DEVICE_CONNECTION_STRING")
 
@@ -15,7 +15,7 @@ async def main():
 
     # Send a single message
     print("Sending message...")
-    await device_client.send_message("This is a message that is being sent")
+    await device_client.send_message(message)
     print("Message successfully sent!")
 
     # finally, shut down the client
@@ -23,4 +23,4 @@ async def main():
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    asyncio.run(send_message("Hello World!"))
