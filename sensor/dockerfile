@@ -1,0 +1,26 @@
+# Pull base image.
+
+FROM ubuntu:latest
+
+ARG DEBIAN_FRONTEND=noninteractive
+# Add files.
+
+ADD src/ .
+
+
+
+# Install Linux Dependencies.
+
+RUN \
+    apt-get update -y && \
+    apt-get upgrade -y && \
+    apt-get install -y python3 && \
+    apt-get install -y python3-pip && \
+    apt-get install -y curl && \
+    apt-get install -y sudo && \
+    apt-get install -y cloud-init && \
+    curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+# Install Python Dependencies.
+RUN \
+    python3 -m pip install -r requirements.txt
