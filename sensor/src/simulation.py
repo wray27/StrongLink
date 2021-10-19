@@ -37,7 +37,7 @@ class Sensor:
         print("\n")
         self._current_location = self._start
         difference = np.subtract(self._destination, self._start)
-        interval = 3 #random.randint(20, 50)
+        interval = random.randint(20, 50)
         self._step = difference / interval
 
     def are_coordinates_equal(self, start, destination):
@@ -92,4 +92,4 @@ async def simulate(interval):
         time.sleep(interval)
 
 if __name__ == "__main__":
-    asyncio.run(simulate(5))
+    asyncio.run(simulate(600))
