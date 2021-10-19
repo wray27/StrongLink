@@ -1,0 +1,9 @@
+version: '3'
+services:
+  sensor:
+    image: "sensor"
+    env_file: ./.env
+    environment:
+      DEVICE_ID: "Truck-000{{.Task.Slot}}"
+    deploy:
+      replicas: 8
