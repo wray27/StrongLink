@@ -8,12 +8,15 @@ from datetime import datetime, date
 
 from iot import send_message
 
+
 class Sensor:
 
     def __init__(self):
         self.coordinates = [
-            [51.5074, 0.1278], [51.7520, 1.2577], [52.2053, 0.1218], [53.4808, 2.2426],
-            [53.4084, 2.9916], [55.9533, 3.1883], [53.8008, 1.5491], [53.8008, 1.5491],
+            [51.5074, 0.1278], [51.7520, 1.2577], [
+                52.2053, 0.1218], [53.4808, 2.2426],
+            [53.4084, 2.9916], [55.9533, 3.1883], [
+                53.8008, 1.5491], [53.8008, 1.5491],
             [50.8225, 0.1372], [52.4862, 1.8904]
         ]
         self.location_setup(self.coordinates[random.randint(0, 9)])
@@ -43,7 +46,7 @@ class Sensor:
     def are_coordinates_equal(self, start, destination):
         rel_tol = 1e-06
         return (math.isclose(start[0], destination[0], rel_tol=rel_tol) and
-            math.isclose(start[1], destination[1], rel_tol=rel_tol))
+                math.isclose(start[1], destination[1], rel_tol=rel_tol))
 
     def record_location(self):
         if not self.are_coordinates_equal(self._current_location, self._destination):
@@ -68,7 +71,7 @@ class Sensor:
         else:
             status = "ok"
         print(f"status: {status}")
-
+        return status
 
     def create_message(self):
         self.record_location()
