@@ -88,7 +88,7 @@ async def simulate(interval):
     sensor = Sensor()
     while True:
         message = sensor.create_message()
-        # await send_message(message)
+        await send_message(message)
         time.sleep(interval)
 
 if __name__ == "__main__":
