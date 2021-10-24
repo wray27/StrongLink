@@ -17,7 +17,7 @@ A smarter way of supplying, manufacturing and assuring quality.
     docker swarm init
 ```
 
-* Deploys the sensors on to the swarm (set to 8 sensors). Give a ***<name>** to the stack of containers.
+* Deploys the sensors on to the swarm (set to 8 sensors). Give a ***<name>*** to the stack of containers.
 ```
     docker stack deploy -c docker-compose.yaml <name>
 ```
